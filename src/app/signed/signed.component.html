@@ -1,0 +1,37 @@
+<div
+  class="rounded-border" style="display: flex;flex-wrap: wrap;box-shadow: 1px 1px 3px gray;background-color: #F9FBE7;margin-bottom:20px;justify-content:
+        space-around;align-items:flex-end; width:100%;">
+  <md-input-container class="example-full-width" style="width:70%;">
+    <textarea #tweet mdInput mdTextareaAutosize id="name" class="form-control" maxlength="140"
+              (keyup)="this.twitterService.keyPressed(tweet)"
+              placeholder="Tweet" name="name"
+              style="padding: 5px;background-color: #F9FBE7;color:#7B1FA2;"></textarea>
+  </md-input-container>
+  <button md-button class="mat-elevation-z8 mat-button mat-primary" (click)="onClick(tweet)"
+          style="width: 20%;margin:1em">
+    Tweet
+  </button>
+  <label [innerHTML]="this.twitterService.tweeted"></label>
+
+</div>
+
+<div *ngIf="this.twitterService.arrOfPosts" style="width:100%;background-color: #F0F4C3">
+  <div class="tweeted-data rounded-border"
+       *ngFor="let post of this.twitterService.arrOfPosts.slice(0,this.twitterService.loadCount*10)"
+       style="width: initial;margin-bottom:
+      20px;background-color: #F9FBE7;">
+    <a uiSref='callback.signed' [uiParams]="{personId: post['user']['screen_name']}" >
+      <div style="display: flex;flex-wrap: wrap;align-items: flex-start;width:100%">
+        <div class="rounded-border"
+             style="background-color: #F9FBE7;box-shadow: 1px 1px 1px gray;margin:3px">
+          <img [src]='post["user"]["profile_image_url"]' style="width:30px;height:30px" class="rounded-border"/>
+        </div>
+        <div [innerHTML]="post['user']['name']+'&nbsp;@'+post['user']['screen_name']"></div>
+      </div>
+    </a>
+    <div style="display: flex;align-items: center">
+      <div class="timeline-tweets" [innerHTML]="post['text']"></div>
+    </div>
+  </div>
+</div>
+

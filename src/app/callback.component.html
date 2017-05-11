@@ -1,0 +1,79 @@
+
+
+  <div *ngIf="this.twitterService.data"
+       infinite-scroll
+       [scrollWindow]="false"
+       [infiniteScrollDistance]="2"
+       [infiniteScrollThrottle]="300"
+       (scrolled)="this.twitterService.onScroll()"
+       style="background-color: #F9FBE7;overflow-y:auto;height:85vh;display: flex;justify-content: space-around;align-items:flex-start;flex-wrap: wrap;">
+    <div class="border-div-level-1 content-div-padd"
+         style="display: flex;flex-wrap:wrap;width:22%;font-size:small">
+      <div class="profile-info-div">
+        <div class="rounded-border" [style.background]='"#"+this.twitterService.data["profile_link_color"]'
+             style="height: 50px;width: 100%;position: relative">
+          <div class="rounded-border"
+               style="position:absolute;top:1.5vw;left:0.2vw;background-color: #F9FBE7;box-shadow: 1px 1px 1px gray">
+            <a uiSref='callback.signed' [uiParams]="{personId: this.twitterService.data['screen_name']}">
+              <img [src]='this.twitterService.data["profile_image_url"]'
+                   style="width:50px;height:50px;"/>
+            </a>
+          </div>
+        </div>
+
+        <a uiSref='callback.signed' [uiParams]="{personId: this.twitterService.data['screen_name']}" style="width:100%">
+          <div
+            style="display: flex;flex-direction:column;flex-wrap: nowrap;justify-content: center;align-items:
+            flex-end;width: 100%">
+            <div style="font-size: large;margin-left:10%;padding-right: 4px">{{this.twitterService.data["name"]}}</div>
+            <div style="padding-right: 4px">@{{this.twitterService.data["screen_name"]}}</div>
+          </div>
+        </a>
+        <div style="display: flex;justify-content: space-around;flex-wrap: wrap;align-items: center;width:100%">
+          <a uiSref='callback.signed' [uiParams]="{personId: this.twitterService.data['screen_name']}" >
+            <div class="center" style="text-transform: uppercase">tweets</div>
+            <div class="center">{{this.twitterService.data["statuses_count"]}}</div>
+          </a>
+          <a href="/following">
+            <div class="center " style="text-transform: uppercase">following</div>
+            <div class="center">{{this.twitterService.data["friends_count"]}}</div>
+          </a>
+          <a href="/followers">
+            <div class="center" style="text-transform: uppercase">followers</div>
+            <div class="center">{{this.twitterService.data["followers_count"]}}</div>
+          </a>
+        </div>
+      </div>
+      <div class="profile-info-div" style="padding: 20px;display: block">
+        <div *ngFor="let trend of this.twitterService.trends" style="padding:3px;">
+          <a [href]="trend['url']" [innerHTML]="trend['name']" target="_blank"></a>
+        </div>
+      </div>
+    </div>
+    <div class="border-div-level-1 content-div-padd"
+         style="display: flex;flex-wrap: wrap;justify-content:center;width:44%;">
+      <ui-view></ui-view>
+    </div>
+    <div class="border-div-level-1 content-div-padd" style="display: flex;flex-wrap:wrap;width:22%;">
+      <div *ngFor="let user of this.twitterService.suggestedUsers" class="profile-info-div" style="flex-wrap: nowrap;">
+        <a uiSref='callback.signed' [uiParams]="{personId: user['screen_name']}">
+          <div class="rounded-border"
+               style="background-color: #F9FBE7;box-shadow: 1px 1px 1px gray;margin:3px">
+            <img [src]='user["profile_image_url"]'
+                 class="rounded-border" style="width:50px;height:50px;"/>
+          </div>
+        </a>
+        <div
+          style="display: flex;flex-direction: column;align-items: center;justify-content:space-around;margin:3px;width:100%;">
+          <a uiSref='callback.signed' [uiParams]="{personId: user['screen_name']}">
+            <div [innerHTML]="user['name']+' @'+user['screen_name']"
+                 [title]="user['name']+' @'+user['screen_name']"
+                 style="text-align:center;width:100%;"></div>
+          </a>
+          <button md-button class="mat-elevation-z8 mat-button mat-accent" (click)="this.followUser(user['screen_name'])"
+                  style="line-height: 20px;">+Follow
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

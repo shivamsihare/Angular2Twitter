@@ -1,0 +1,27 @@
+.hide{
+  display: none;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.perfect-nav{
+  display: flex;
+  padding-left: 30px;
+  padding-right: 30px;
+  height:100px;
+  background-color: #F0F4C3;
+  color: rgba(208,0,240,0.87);
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.perfect-nav-item{
+  margin-left:20px;
+}
+
+
+

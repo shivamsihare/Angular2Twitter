@@ -1,0 +1,40 @@
+.content-div-padd {
+  padding: 20px;
+}
+
+.rounded-border{
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+
+.profile-info-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  box-shadow: 1px 1px 1px gray;
+  background-color: #F9FBE7;
+  font-size:small;
+  padding: 10px;
+  border-radius: 3px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.tweeted-data{
+  padding: 10px;
+  box-shadow: 1px 1px 1px gray;
+}
+
+.timeline-tweets{
+  font-size: larger;
+  font-weight: 200;
+  padding: 5px;
+}
+
+:host{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
