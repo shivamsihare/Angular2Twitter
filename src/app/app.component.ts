@@ -4,7 +4,7 @@ import {Router} from "@angular/router";
 import {SignInSuccessService} from "./sign-in-success.service";
 import 'hammerjs';
 import {BrowserModule} from '@angular/platform-browser';
-import {UIRouterModule} from 'ui-router-ng2';
+import {UIRouterModule} from '@uirouter/angular';
 
 @Component({
   moduleId: MyModule.id,
@@ -34,5 +34,4 @@ export class AppComponent {
       window.location.href = "https://api.twitter.com/oauth/authenticate?"+token;
     });
   }
-
 }
