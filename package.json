@@ -39,7 +39,7 @@
     "systemjs": "^0.20.10",
     "tether": "^1.4.0",
     "typescript": "2.3.2",
-    "zone.js": "^0.7.6"
+    "zone.js": "^0.8.4"
   },
   "devDependencies": {
     "@angular/cli": "^1.0.3",
