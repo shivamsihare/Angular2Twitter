@@ -23,3 +23,6 @@ npm install
 ng serve
 ```
 
+This application has been executed on Mac with chrome browser.
+There may be `CORS(HTTP 400)` issue with chrome, for workaround look [here](http://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome) to solve the issue.
+
