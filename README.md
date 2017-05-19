@@ -1,7 +1,7 @@
 # Angular Twitter
 
 * This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3. 
-* It is built on Angular. 
+* It is built on Angular 4. 
 * Uses Material Design and Flexbox.
 * Uses Angular UI Router for preserving state in Angular.
 

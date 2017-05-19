@@ -3,12 +3,16 @@
 # compiled output
 
 # dependencies
-/node_modules
-/bower_components
+node_modules
+bower_components
+.sass-cache
 
 # IDEs and editors
 /.idea
 .editorconfig
+*spec.ts
+*.service.js
+*.component.js
 
 
 # System Files
@@ -17,4 +21,3 @@ Thumbs.db
 
 #Secret Files
 keys.ts
-twitter.service.js
