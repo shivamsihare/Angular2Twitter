@@ -3,6 +3,7 @@
 * This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3. 
 * It is built on Angular. 
 * Uses Material Design and Flexbox.
+* Uses Angular UI Router for preserving state in Angular.
 
 Make an app on Twitter api [here](https://apps.twitter.com/). Provide callback url as "http://localhost:4200/callback".
 
