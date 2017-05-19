@@ -10,15 +10,14 @@ import {SignInSuccessService} from './sign-in-success.service';
 import {Angular2FontawesomeModule} from 'angular2-fontawesome/angular2-fontawesome';
 
 import { SignedComponent } from './signed/signed.component';
-import { UIRouterModule} from '@uirouter/angular';
-import {signedState, signedUserState, callbackState} from './states';
+import { UIRouterModule, Transition} from '@uirouter/angular';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {
   MdButtonModule, MdCoreModule, MdIconModule, MdIconRegistry, MdInputModule,
   MdMenuModule
 } from '@angular/material';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
-
+import {States} from './states';
 
 
 @NgModule({
@@ -33,11 +32,11 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
     FormsModule,
     HttpModule,
     Angular2FontawesomeModule,
-      BrowserAnimationsModule,
-      NoopAnimationsModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     MdIconModule, MdMenuModule, MdCoreModule, MdButtonModule, MdInputModule,
     InfiniteScrollModule,
-    UIRouterModule.forRoot({states: [signedState, callbackState, signedUserState], useHash: false}),
+    UIRouterModule.forRoot({states: [States.signedState, States.callbackState, States.signedUserState], useHash: false}),
   ],
   providers: [TwitterService, SignInSuccessService, MdIconRegistry],
   bootstrap: [AppComponent]
